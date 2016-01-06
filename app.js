@@ -23,21 +23,13 @@ fs.readFile(file, 'utf8', function(error, data) {
     jsdom.env(data, [], function (errors, window) {
         var $ = require('jquery')(window);
 
-		//convert <span class="char-style-override-2"> to <em></em>
-
-		$( ".char-style-override-2" ).wrap( "<em></em>" );
-
-		//convert <span class="char-style-override-5"> to <em></em>
-
-		$( ".char-style-override-5" ).wrap( "<em></em>" );
-
-		//convert <span class="Italic"> to <em></em>
-
+		//convert some span classes to <em></em>
 		$( ".Italic" ).wrap( "<em></em>" );
 
-		//convert <span class="char-style-override-3"> to <strong></strong>
+		//convert span classes to <strong></strong>
 
 		$( ".char-style-override-3" ).wrap( "<strong></strong>" );
+		$( ".Bold" ).wrap( "<strong></strong>" );
 
 		// delete all <div></div> tags - keep what's inside
 
@@ -67,6 +59,10 @@ fs.readFile(file, 'utf8', function(error, data) {
 		// delete all empty <p></p>
 
 		$("p:empty").remove();
+
+		// delete all empty <em></em>
+
+		$("em:empty").remove();
 
 		// delete <link>
 
