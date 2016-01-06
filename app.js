@@ -27,6 +27,10 @@ fs.readFile(file, 'utf8', function(error, data) {
 
 		$( ".char-style-override-2" ).wrap( "<em></em>" );
 
+		//convert <span class="char-style-override-5"> to <em></em>
+
+		$( ".char-style-override-5" ).wrap( "<em></em>" );
+
 		//convert <span class="char-style-override-3"> to <strong></strong>
 
 		$( ".char-style-override-3" ).wrap( "<strong></strong>" );
