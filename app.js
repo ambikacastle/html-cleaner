@@ -64,9 +64,9 @@ fs.readFile(file, 'utf8', function(error, data) {
 
 		$("link").remove();
 
-		// delete <a>
+		// delete all <a></a> tags - keep what's inside
 
-		$("a").remove();
+		$("a").contents().unwrap();
 
 		// delete <meta>
 
