@@ -64,6 +64,10 @@ fs.readFile(file, 'utf8', function(error, data) {
 
 		$("link").remove();
 
+		// delete <a>
+
+		$("a").remove();
+
 		// delete <meta>
 
 		$("meta").remove();
