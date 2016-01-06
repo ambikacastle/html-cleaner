@@ -1,8 +1,9 @@
 {
-  "name": "HTML Cleaner",
+  "name": "html-cleaner",
   "version": "0.1.0",
   "description": "This script converts HTML that has been exported from InDesign to a clean, usable format that can be pasted into Wordpress.",
   "main": "index.js",
+  "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
