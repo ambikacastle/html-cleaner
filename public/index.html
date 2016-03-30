@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>WIRED HTML Cleaner</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="/style.css" rel="stylesheet">
+</head>
+
+<body>
+<div class="container">
+    <h2>Use this tool to clean up HTML that you've exported from a WIRED story in InDesign.</h2>
+    <hr>
+    <p>By default, inDesign adds a bunch of messy markup to an exported HTML file, that we don't need. This tool removes all those extraneous tags, and produces an HTML file that you can use in something like WordPress. It keeps paragraph, strong, and emphasis tags.</p>
+    <p>To export an HTML file from inDesign, type <strong>command + E</strong>.</p>
+
+    <hr>
+    <form action="/cleanhtml" method="post" enctype="multipart/form-data" class="form-inline">
+        <div>
+
+            <div class="form-group">
+    <label for="exampleInputFile">Upload file</label>
+    <input id="myfile" name="myfile" type="file">
+    
+  </div>
+<div class="form-group">
+            <input value="submit" type="submit" class="btn btn-default">
+</div>
+    </div>
+    </form>
+    <hr>
+        <h6>Questions, comments, or suggestions? Contact <a href="mailto:ambika_castle@wired.com">ambika_castle@wired.com</a></h6>
+</div>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script>
+    window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')
+    </script>
+</body>
+
+</html>
