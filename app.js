@@ -7,9 +7,9 @@ if (process.argv.length !== 3) {
 
 //stuff you need
 
-var jsdom = require("jsdom");
 var fs = require("fs");
 var path = require("path");
+var htmlCleaner = require("./htmlcleaner.js");
 
 //get second item from process.argv
 
@@ -20,80 +20,21 @@ fs.readFile(file, 'utf8', function(error, data) {
 		console.log("Unable to find file--maybe you typed the filename wrong?");
 		return;
 	}
-    jsdom.env(data, [], function (errors, window) {
-        var $ = require('jquery')(window);
+	//store the cleaned html from the htmlcleaner function
 
-		//convert some span classes to <em></em>
-		$( ".Italic" ).wrap( "<em></em>" );
+	var callback = function(text) {
 
-		//convert span classes to <strong></strong>
-
-		$( ".char-style-override-3" ).wrap( "<strong></strong>" );
-		$( ".Bold" ).wrap( "<strong></strong>" );
-
-		// delete all <div></div> tags - keep what's inside
-
-		$('div').contents().unwrap();
-
-		// delete all <span></span> tags - keep what's inside
-
-		$('span').contents().unwrap();
-
-		// delete all class="" in <p> and <img>
-
-		$( "p" ).removeClass();
-		$( "img" ).removeClass();
-
-		// delete stray <br />
-
-		$("br").remove();
-
-		// delete stray <span>
-
-		$("span").remove();
-
-		// delete all <img>
-
-		$("img").remove();
-
-		// delete all empty <p></p>
-
-		$("p:empty").remove();
-
-		// delete all empty <em></em>
-
-		$("em:empty").remove();
-
-		// delete <link>
-
-		$("link").remove();
-
-		// delete all <a></a> tags - keep what's inside
-
-		$("a").contents().unwrap();
-
-		// delete <meta>
-
-		$("meta").remove();
-
-		//clean up all the spaces
-
-		var text = window.document.documentElement.outerHTML;
-		text = text.replace(/\n\s*\n\s*\n/g, '\n\n');
 
 		//write the file with a new filename
 
 		var fileName = path.parse(file);
+	    fs.writeFile(fileName.name + "-1" + fileName.ext, text,
+	        	function (error){
+	        if (error) throw error;
+	    });
 
+	}
 
-        fs.writeFile(fileName.name + "-1" + fileName.ext, text,
-            	function (error){
-            if (error) throw error;
-        });
-    });
+	var text = htmlCleaner(data, callback);
+
 });
-
-
-
-
-
