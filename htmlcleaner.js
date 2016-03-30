@@ -84,6 +84,10 @@ module.exports = function(data, callback) {
 
 		text = text.replace(/\t/g, '');
 
+		//spaces after paragraphs for easier reading
+
+		text = text.replace(/<\/\p>/g, '<\p>\n\n');
+
 		callback(text);
 
 	});
